@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #0c111b;
+}
+.moviePage {
+  background: #263f61;
+}
+.moviePage img {
+  background: #263f61;
+  padding: 12px 0px 8px 56px;
+  cursor: pointer;
+}
+.movieImage img {
+  display: none;
+}
+.playIcon img {
+  display: none;
+}
+.movieDescription {
+  padding: 0px 0px 0px 46px;
+  display: flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 78px);
+}
+.movieDatabase {
+  margin-bottom: 221px;
+}
+.movieDatabase h5 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 500;
+  margin: 30px 0px 12px 0px;
+}
+.movieDatabase p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  white-space: break-spaces;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.paraGraph {
+  max-width: 375px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  line-height: 152%;
+  margin: 12px 0px 24px 0px;
+}
+.releaseDates {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  gap: 64px;
+}
+.movielanguage {
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  gap: 34px;
+}
+.playButton {
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  cursor: pointer;
+}
+.playButton img {
+  width: 12%;
+}
+.loadingContent img {
+  padding: 0px;
+}
+.loadingContent {
+  color: #ffc4c4;
+  text-align: center;
+  padding: 200px 0px 0px 500px;
+}
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.iframeVideo {
+  max-width: 960px;
+  height: 374px;
+}
+.leftArrow {
+  cursor: pointer;
+  margin-top: 50px;
+}
+/* Modal Content */
+.modal-content {
+  background-color: transparent;
+  margin: auto;
+  width: 964px;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*media query section */
+@media only screen and (max-width: 992px) {
+  .movieDescription {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    background: none !important;
+  }
+  .responsiveMovie {
+    position: relative;
+  }
+  .movieImage img {
+    display: block;
+    width: 100%;
+    background-repeat: no-repeat;
+  }
+  .playIcon img {
+    display: block;
+    width: 10%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+  }
+  .leftArrow {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+  }
+  .playButton img {
+    display: none !important;
+  }
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .modal-content {
+    background-color: transparent;
+    width: 564px;
+  }
+  .movieDatabase {
+    margin: 20px 0px 0px 20px;
+    padding-bottom: 50px;
+  }
+  .movieDatabase h5 {
+    font-size: 40px;
+    margin: 0px 0px 12px 0px;
+  }
+  .movieDatabase p {
+    font-size: 15px;
+  }
+  .paraGraph {
+    max-width: 370px;
+    font-size: 18px;
+  }
+  .releaseDates {
+    font-size: 15px;
+    display: flex;
+  }
+  .movielanguage {
+    font-size: 15px;
+    display: flex;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .modal-content {
+    background-color: transparent;
+    width: 564px;
+  }
+  .movieDatabase h5 {
+    font-size: 35px;
+    margin: 0px 0px 12px 0px;
+  }
+  .movieDatabase p {
+    font-size: 13px;
+    width: 300px;
+  }
+  .paraGraph {
+    max-width: 350px;
+    font-size: 16px;
+  }
+  .releaseDates {
+    font-size: 14px;
+  }
+  .movielanguage {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .modal-content {
+    background-color: transparent;
+    width: 264px;
+  }
+  .moviePage img {
+    padding: 0px 0px 0px 20px;
+  }
+  .movielanguage {
+    font-size: 13px;
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .modal-content {
+    background-color: transparent;
+    width: 204px;
+  }
+  .movieDatabase p {
+    font-size: 12px;
+  }
+}

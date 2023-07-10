@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #0c111b;
+}
+.homePage {
+  background: #263f61;
+  display: flex;
+  justify-content: space-between;
+}
+.brandLogo {
+  background: #263f61;
+  padding: 13px 0px 0px 56px;
+  cursor: pointer;
+}
+.bannerSection img {
+  cursor: pointer;
+  height: auto;
+}
+h2 {
+  color: #fff;
+  font-size: 28px;
+  font-family: Poppins;
+  font-weight: 500;
+  margin: 56px 0px 32px 56px;
+}
+.card {
+  max-width: 281px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.movieName img {
+  display: block;
+  width: 281px;
+  height: 113px;
+  object-fit: cover;
+  object-position: 20% 20%;
+  cursor: pointer;
+}
+.movieName {
+  cursor: auto;
+}
+.movieRating {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+.movieList {
+  display: flex;
+  justify-content: center;
+  grid-row-gap: 32px;
+  grid-column-gap: 16px;
+  flex-wrap: wrap;
+}
+.movieList a {
+  text-decoration: none;
+}
+.movieCard {
+  background: linear-gradient(0deg, #1a2b4a 0%, #2b507c 100%);
+  padding: 10px 23px;
+  cursor: auto;
+  flex-grow: 1;
+}
+.rateNumber {
+  color: #ccc;
+  font-size: 14px;
+  font-family: Poppins;
+  line-height: 140%;
+}
+.movieDetails {
+  display: flex;
+  justify-content: space-between;
+  max-width: 234px;
+  margin: 0 auto;
+  background: transparent;
+  align-items: center;
+  cursor: pointer;
+}
+.movieDetails img {
+  cursor: pointer;
+  display: block;
+}
+.movieDetails h4 {
+  text-decoration: none;
+}
+h4 {
+  color: #fff;
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 140%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 180px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.searchLogo img {
+  padding: 0px;
+  /* cursor: pointer; */
+}
+.inputBox {
+  display: flex;
+  align-items: flex-start;
+  margin: 12px 0px 0px 0px;
+  width: 80%;
+}
+input::placeholder {
+  color: white;
+}
+.searcBox {
+  padding: 9px 0px 9px 8px;
+  border-radius: 5px 0px 0px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 16px;
+  font-family: Poppins;
+  line-height: 24px;
+  width: 100%;
+  color: white;
+  outline: none;
+}
+
+.navSearchBar {
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+}
+.logOut {
+  margin: 23px 43px 23px 50px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Poppins;
+  line-height: 24px;
+  text-decoration: none;
+}
+.logOut:hover {
+  color: #e05a58;
+}
+.pagiNation {
+  color: #fff;
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  margin: 18px auto 40px;
+  gap: 28px;
+}
+.pagiNation ul li {
+  cursor: pointer;
+}
+.active {
+  color: #d62d2a;
+}
+.loadingImage {
+  padding-left: 500px;
+}
+/*media query section */
+@media only screen and (max-width: 992px) {
+  .navSearchBar {
+    width: 60%;
+    padding-left: 20px;
+    margin-left: auto;
+  }
+  .bannerSection img {
+    cursor: pointer;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .homePage {
+    display: block;
+  }
+  .navSearchBar {
+    width: 80%;
+  }
+  h2 {
+    font-size: 26px;
+    margin: 28px 0px 28px 26px;
+  }
+  .pagiNation {
+    gap: 20px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .navSearchBar {
+    display: block;
+    width: 100%;
+    padding-bottom: 16px;
+    padding-left: 56px;
+  }
+  .pagiNation {
+    gap: 15px;
+  }
+  .logOut {
+    margin: 0px 0px 16px 0px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .navSearchBar {
+    padding-left: 20px;
+  }
+  .brandLogo {
+    padding: 16px 0px 16px 20px;
+  }
+  .inputBox {
+    margin: 0px 0px 16px 0px;
+    width: 85%;
+  }
+  h2 {
+    font-size: 24px;
+    margin: 24px 0px 24px 20px;
+  }
+  .pagiNation {
+    margin: 40px 15px 20px 24px;
+    gap: 10px;
+  }
+}
