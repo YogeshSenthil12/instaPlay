@@ -73,6 +73,7 @@ const MovieData = () => {
 
   const moviePage = () => {
     localStorage.removeItem("searchMovies");
+    localStorage.removeItem("activepage");
     navigate("/home");
   };
 
