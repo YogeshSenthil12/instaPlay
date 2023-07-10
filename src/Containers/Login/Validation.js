@@ -30,27 +30,35 @@ const Validation = () => {
   };
 
   const fetchToken = async () => {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/authentication/token/new?api_key=728f79990e026537f04182b251b23988"
-    );
-    const details = await response.json();
-    return details;
+    try {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/authentication/token/new?api_key=728f79990e026537f04182b251b23988"
+      );
+      const details = await response.json();
+      return details;
+    } catch (error) {
+      setErrors(error.status_message);
+    }
   };
 
   const login = async (formValues) => {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=728f79990e026537f04182b251b23988",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({...formValues, request_token: data}),
-      }
-    );
-    const responseData = await response.json();
-    handleLogin(responseData);
+    try {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=728f79990e026537f04182b251b23988",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({...formValues, request_token: data}),
+        }
+      );
+      const responseData = await response.json();
+      handleLogin(responseData);
+    } catch (error) {
+      setErrors(error.status_message);
+    }
   };
 
   const handleLogin = (responseData) => {

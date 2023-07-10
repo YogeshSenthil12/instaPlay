@@ -71,23 +71,31 @@ const HomePage = () => {
   }, [searchMovies, currentPage]);
 
   const fetchMovies = async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=728f79990e026537f04182b251b23988&page=${currentPage}`
-    );
-    const data = await response.json();
-    setMovies(data.results);
-    setTotalPages(data.total_pages);
-    setLoading(false);
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=728f79990e026537f04182b251b23988&page=${currentPage}`
+      );
+      const data = await response.json();
+      setMovies(data.results);
+      setTotalPages(data.total_pages);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
   };
 
   const searchMoviesAPI = async () => {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=728f79990e026537f04182b251b23988&language=en-US&query=${searchMovies}&page=${currentPage}&include_adult=false`
-    );
-    const movieData = await res.json();
-    setMovies(movieData.results);
-    setTotalPages(movieData.total_pages);
-    setLoading(false);
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=728f79990e026537f04182b251b23988&language=en-US&query=${searchMovies}&page=${currentPage}&include_adult=false`
+      );
+      const movieData = await res.json();
+      setMovies(movieData.results);
+      setTotalPages(movieData.total_pages);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
   };
 
   const pageTitle = searchMovies
