@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import instaPlay from "../../assests/img/instaPlay.svg";
 
-const LoginForm = ({addTokens, errors, setErrors, handleLogin, apiError}) => {
+const LoginForm = ({login, errors, setErrors, handleLogin, apiError}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
@@ -11,7 +11,7 @@ const LoginForm = ({addTokens, errors, setErrors, handleLogin, apiError}) => {
     const validationErrors = validate({username, password});
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0 && !isSuccess) {
-      await addTokens({username, password});
+      await login({username, password});
     }
   };
 
@@ -55,7 +55,7 @@ const LoginForm = ({addTokens, errors, setErrors, handleLogin, apiError}) => {
   return (
     <header className="container">
       <nav className="navBarSection">
-        <img src={instaPlay} alt="" />
+        <img src={instaPlay} alt="navbarLogo" />
       </nav>
 
       <div className="formFieldContainer">
@@ -85,9 +85,7 @@ const LoginForm = ({addTokens, errors, setErrors, handleLogin, apiError}) => {
               {errors.password && (
                 <p className="formErrors">{errors.password}</p>
               )}
-              {apiError && (
-                <p className="formAPIErrors">{apiError}</p>
-              )}
+              {apiError && <p className="formAPIErrors">{apiError}</p>}
               <button className="buttonField" type="submit">
                 Login
               </button>

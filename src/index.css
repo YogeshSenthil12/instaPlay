@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: Poppins, sans-serif;
+  background: #0c111b;
+  font-style: normal;
+}
+.input-txt::placeholder {
+  font-family: poppins;
 }

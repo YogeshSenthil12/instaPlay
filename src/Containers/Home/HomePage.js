@@ -1,6 +1,5 @@
 import instaPlay from "../../assests/img/instaPlay.svg";
 import StrangerThings from "../../assests/img/StarngerThings.svg";
-import Play from "../../assests/img/Play.svg";
 import searchBar from "../../assests/img/searchBar.svg";
 import loadingImage from "../../assests/img/memes-loading.gif";
 import ReactPaginate from "react-paginate";
@@ -12,7 +11,6 @@ import MovieCard from "../../Components/MovieCard";
 
 import "./home.css";
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
 
 const HomePage = () => {
   const storedSearchMovies = localStorage.getItem("searchMovies");
@@ -23,7 +21,7 @@ const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(page ? page : 1);
   const [activePage, setActivePage] = useState(currentPage);
-  const [searchMovies, setSearchMovies] = useState(storedSearchMovies || "");
+  const [searchMovies, setSearchMovies] = useState("");
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
 
@@ -44,7 +42,6 @@ const HomePage = () => {
     const movieData = e.target.value;
     setSearchMovies(movieData);
     setCurrentPage(1);
-    localStorage.setItem("searchMovies", movieData);
     setLoading(true);
   };
 
@@ -57,9 +54,7 @@ const HomePage = () => {
   };
 
   const goBackButton = () => {
-    localStorage.removeItem("data");
-    localStorage.removeItem("searchMovies");
-    localStorage.removeItem("activepage");
+    localStorage.clear();
     navigate("/");
     toast.success("LoggedOut successfully", {position: "bottom-right"});
   };
@@ -80,7 +75,6 @@ const HomePage = () => {
       `https://api.themoviedb.org/3/trending/movie/day?api_key=728f79990e026537f04182b251b23988&page=${currentPage}`
     );
     const data = await response.json();
-    console.log("currentPage:", data);
     setMovies(data.results);
     setTotalPages(data.total_pages);
     setLoading(false);
@@ -91,7 +85,6 @@ const HomePage = () => {
       `https://api.themoviedb.org/3/search/movie?api_key=728f79990e026537f04182b251b23988&language=en-US&query=${searchMovies}&page=${currentPage}&include_adult=false`
     );
     const movieData = await res.json();
-    console.log("SearchedMovies:", movieData);
     setMovies(movieData.results);
     setTotalPages(movieData.total_pages);
     setLoading(false);
@@ -105,7 +98,7 @@ const HomePage = () => {
     <header>
       <nav className="homePage">
         <div>
-          <img src={instaPlay} alt="" className="brandLogo" />
+          <img src={instaPlay} alt="navBarLogo" className="brandLogo" />
         </div>
 
         <div className="navSearchBar">
@@ -118,7 +111,7 @@ const HomePage = () => {
               onChange={handleSearchChange}
             />
             <div className="searchLogo">
-              <img src={searchBar} alt="" />
+              <img src={searchBar} alt="searchLogo" />
             </div>
           </div>
           <a href="#" className="logOut" onClick={goBackButton}>
@@ -128,30 +121,28 @@ const HomePage = () => {
       </nav>
 
       <div className="bannerSection">
-        <img src={StrangerThings} alt="" width="100%" />
+        <img src={StrangerThings} alt="bannerImage" width="100%" />
       </div>
 
       <h2>{pageTitle}</h2>
 
       <div className="movieList">
         {loading ? (
-          <img src={loadingImage} alt="" />
+          <img src={loadingImage} alt="loderImage" />
         ) : movies.length > 0 ? (
           movies.map((movie) => (
-            <Link >
-              <MovieCard
-                key={movie?.id}
-                id={movie?.id}
-                imageUrl={movie?.poster_path}
-                name={movie?.title}
-                rating={movie?.vote_average}
-                Play={Play}
-                activePage={activePage}
-              />
-            </Link>
+            <MovieCard
+              key={movie?.id}
+              id={movie?.id}
+              imageUrl={movie?.poster_path}
+              name={movie?.title}
+              rating={movie?.vote_average}
+              activePage={activePage}
+              searchMovies={searchMovies}
+            />
           ))
         ) : (
-          <p style={{color: "white"}}>No movies found.</p>
+          <p className="noMovies">No movies found.</p>
         )}
       </div>
       <div className="pagiNation">

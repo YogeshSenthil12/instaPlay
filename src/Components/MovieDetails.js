@@ -1,8 +1,7 @@
-import {useState} from "react";
+import Play from "../../src/assests/img/Play.svg";
+import leftArrow from "../../src/assests/img/leftArrow.svg";
 
 const MovieDetails = ({
-  leftArrow,
-  Play,
   rating,
   name,
   releaseDate,
@@ -20,21 +19,21 @@ const MovieDetails = ({
 
   return (
     <div className="movieDescription" style={style}>
-      <div className="responsiveMovie" >
+      <div className="responsiveMovie">
         <div className="movieImage">
           <img
             src={`https://image.tmdb.org/t/p/original${movieDescription.backdrop_path}`}
           />
         </div>
         <div className="playIcon">
-          <img src={Play} onClick={playVideo} alt=""/>
+          <img src={Play} onClick={playVideo} alt="playMovie" />
         </div>
       </div>
       <div className="movieDatabase">
         <div>
           <img
             src={leftArrow}
-            alt=""
+            alt="clickBack"
             className="leftArrow"
             onClick={handleGoBack}
           />
@@ -58,7 +57,7 @@ const MovieDetails = ({
 
       {iconState && (
         <div className="playButton">
-          <img src={Play} alt=" " onClick={playVideo} />
+          <img src={Play} alt="playMovie" onClick={playVideo} />
         </div>
       )}
     </div>

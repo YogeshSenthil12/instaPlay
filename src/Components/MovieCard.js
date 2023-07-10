@@ -1,16 +1,18 @@
 import Rating from "react-rating-stars-component";
 import {useNavigate} from "react-router-dom";
 import defaultImage from "../../src/assests/img/solid.jpeg";
+import Play from "../../src/assests/img/Play.svg";
 
-const MovieCard = ({rating, name, imageUrl, Play, id, activePage}) => {
+const MovieCard = ({rating, name, imageUrl, id, searchMovies}) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    
     navigate(`/home/details/${id}`);
+    localStorage.setItem("searchMovies", searchMovies);
   };
+
   return (
-    <div class="card" onClick={handleCardClick}>
+    <div class="card">
       <div className="movieName">
         <img
           src={
@@ -18,7 +20,8 @@ const MovieCard = ({rating, name, imageUrl, Play, id, activePage}) => {
               ? `https://image.tmdb.org/t/p/original${imageUrl}`
               : defaultImage
           }
-          alt=""
+          alt="movieBackgroundImg"
+          onClick={handleCardClick}
         />
       </div>
       <div className="movieCard">
@@ -45,8 +48,9 @@ const MovieCard = ({rating, name, imageUrl, Play, id, activePage}) => {
           <div>
             <img
               src={Play}
-              alt=" "
-              onClick={() => navigate(`/home/details/${id}`)}
+              alt="movieDetailsPage"
+              onChange={() => navigate(`/home/details/${id}`)}
+              onClick={handleCardClick}
             />
           </div>
         </div>

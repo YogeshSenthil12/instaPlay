@@ -27,7 +27,6 @@ const Validation = () => {
   const getTokens = async () => {
     const tokenFromServer = await fetchToken();
     setData(tokenFromServer.request_token);
-    console.log("Data", data);
   };
 
   const fetchToken = async () => {
@@ -35,11 +34,10 @@ const Validation = () => {
       "https://api.themoviedb.org/3/authentication/token/new?api_key=728f79990e026537f04182b251b23988"
     );
     const details = await response.json();
-    console.log("ans-----------", details);
     return details;
   };
 
-  const addTokens = async (formValues) => {
+  const login = async (formValues) => {
     const response = await fetch(
       "https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=728f79990e026537f04182b251b23988",
       {
@@ -70,7 +68,7 @@ const Validation = () => {
       <LoginForm
         setFormValues={setFormValues}
         formValues={formValues}
-        addTokens={addTokens}
+        login={login}
         errors={errors}
         setErrors={setErrors}
         apiError={apiError}

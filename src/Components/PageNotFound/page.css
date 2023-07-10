@@ -1,0 +1,16 @@
+.heading {
+  color: #ffffff;
+  text-align: center;
+  top: 100px;
+  padding-top: 150px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.paraSection {
+  color: #ffff;
+  text-align: center;
+  top: 100px;
+  padding-top: 20px;
+  max-width: 540px;
+  margin: 0 auto;
+}

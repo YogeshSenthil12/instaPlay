@@ -1,17 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 body {
-  background: #0c111b;
+  background: black;
 }
 .moviePage {
   background: #263f61;
 }
 .moviePage img {
   background: #263f61;
-  padding: 12px 0px 8px 56px;
+  padding: 10px 0px 2px 56px;
   cursor: pointer;
 }
 .movieImage img {
@@ -240,17 +236,7 @@ body {
     padding: 0px 0px 0px 20px;
   }
   .movielanguage {
-    font-size: 13px;
-    display: flex;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .modal-content {
-    background-color: transparent;
-    width: 204px;
-  }
-  .movieDatabase p {
     font-size: 12px;
+    display: flex;
   }
 }

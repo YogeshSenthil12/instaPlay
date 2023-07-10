@@ -8,7 +8,7 @@ import Validation from "../Login/Validation";
 import HomePage from "../Home/HomePage";
 import MovieData from "..//Details/MovieData";
 import ProtectedRoutes from "./ProtectedRoutes";
-import PageNotFound from "../../Components/PageNotFound";
+import PageNotFound from "../../Components/PageNotFound/PageNotFound";
 
 const RootLayout = () => {
   const router = createBrowserRouter(
